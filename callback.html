@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>call back</title>
+</head>
+<body>
+<p id="one"></p>
+<p id="demo"></p>
+<p id="demoone"></p>
+<p id="demotwo"></p>
+<p id="demothree"></p>
+<script type="text/javascript">
+	<!-- call back -->
+	function myDisplayer(some){
+		document.getElementById('one').innerHTML= some;
+	}
+	function myfirst(){
+		myDisplayer('welcome to ika');
+	}
+	function mySecond() {
+  myDisplayer("Goodbye");
+}
+
+	myfirst();
+	mySecond();	
+
+// Asynchronous
+	setTimeout(myFunction, 3000);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "I love India !!";
+}
+// call()
+// const person = {
+//   fullName: function() {
+//     return this.firstName + " " + this.lastName;
+//   }
+// }
+// const person1 = {
+//   firstName:"John",
+//   lastName: "Doe"
+// }
+// const person2 = {
+//   firstName:"Mary",
+//   lastName: "Doe"
+// }
+// document.getElementById("demoone").innerHTML = person.fullName.call(person1);
+
+
+//apply()
+// const person = {
+//   fullNames: function(city, country) {
+//     return this.firstName + " " + this.lastName + "," + city + "," + country;
+//   }
+// }
+
+// const person3 = {
+//   firstName:"John",
+//   lastName: "Doe"
+// }
+
+// document.getElementById("demotwo").innerHTML = person.fullNames.apply(person3, ["Oslo", "Norway"]);
+
+
+//bind()
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+const member = {
+  firstName:"Hege",
+  lastName: "Nilsen",
+}
+
+let fullName = person.fullName.bind(member);
+
+document.getElementById("demothree").innerHTML = fullName();
+</script>
+</body>
+</html>
